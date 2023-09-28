@@ -1,7 +1,9 @@
 const net = require("net");
 const { connect } = require('./client');
-const { setupInput, handleUserInput } = require('./input');
+const { setupInput} = require('./input');
 
 console.log("Connecting ...");
-connect();
-setupInput();
+//Getting the connection object
+const connection = connect();
+//Passing a connection object
+setupInput(connection);
