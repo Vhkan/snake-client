@@ -13,18 +13,20 @@ const connect = function () {
 
   conn.on("connect", () => {
     console.log("Successfully connected to game server!");
+    //Sending "Move up" on connection to the server
+    conn.write("Move: up");
   });
-  
-//Receiving info from the client
-  // conn.on("data", (data) => {
-  //   console.log("Server says: ", data);
-  // });
 
   conn.write("Name: VDM");
   
   conn.on("data", () => {
     console.log("you ded cuz you idled");
   });
+
+  //Receiving info from the client
+  // conn.on("data", (data) => {
+  //   console.log("Server says: ", data);
+  // });
   
   return conn;
 };
