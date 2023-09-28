@@ -12,8 +12,15 @@ const connect = function () {
   conn.setEncoding("utf8");
 
   conn.on("connect", () => {
-    console.log("Successfully connected!");
+    console.log("Successfully connected to game server!");
   });
+  
+//Receiving info from the client
+  // conn.on("data", (data) => {
+  //   console.log("Server says: ", data);
+  // });
+
+  conn.write("Name: VDM");
   
   conn.on("data", () => {
     console.log("you ded cuz you idled");
