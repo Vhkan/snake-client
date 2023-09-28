@@ -19,6 +19,8 @@ const connect = function () {
 
   conn.write("Name: VDM");
   
+  conn.write("Go!");
+  
   conn.on("data", () => {
     console.log("you ded cuz you idled");
   });
