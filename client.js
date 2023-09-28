@@ -1,11 +1,12 @@
 const { isModuleNamespaceObject } = require("util/types");
 const net = require("net");
+const { IP, PORT } = require("./constants");
 
 // establishes a connection with the game server
 const connect = function () {
   const conn = net.createConnection({
-    host: "172.27.239.219",
-    port: 50541,
+    host: IP,
+    port: PORT,
   });
 
   // interpret incoming data as text
@@ -37,3 +38,4 @@ console.log("Connecting ...");
 connect();
 
 module.exports = { connect }; 
+
