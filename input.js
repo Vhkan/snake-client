@@ -1,44 +1,41 @@
-const { log } = require("console");
-
 // Stores the active TCP connection object.
-let connection = require("./client");
+let connection;
+const { connect } = require("http2");
+const { createConnection } = require("net");
 
 //Update play.js to pass the object returned from connect into the setupInput function.
 const setupInput = (conn) => {
   connection = conn;
-  
-  const handleUserInput = function () {
-    process.stdin.on('data', (key) => {
-      if (key === "w") {
-        console.log("Move up");
-      } else if (key === "a") {
-        console.log("Move left");
-      } else if (key === "s") {
-        console.log("Move down");
-      } else if (key === "d") {
-        console.log("Move right");
-      } else if (key === '\u0003') {
-        console.log("Game over");
-        process.exit();
-      }
-    })
-  };
+  const stdin = process.stdin;
+  stdin.setRawMode(true);
+  stdin.setEncoding("utf8");
+  stdin.resume();
 
-  // \u0003 maps to ctrl+c input
+  //Handling user input event on exiting the game
+  stdin.on("data", handleUserInput);
+  return stdin;
+};
 
-  setupInput();
-  handleUserInput();
+//Moving the snake commands  
+const handleUserInput = function(data) {
+  if (data === 'w') {
+    console.log(connection.write("Move: up"));
+  }
+  if (data === 'a') {
+    connection.write("Move: left");
+  }
+  if (data === 's') {
+    connection.write("Move: down");
+  }
+  if (data === 'd') {
+    connection.write("Move: right");
+
+  }
+  //to exit the game=>   // \u0003 maps to ctrl+c input
+  if (data === '\u0003') {
+    connection.write("Game over");
+    process.exit();
+  }
 };
 
 module.exports = { setupInput };
-
-
-// setup interface to handle user input from stdin
-// const setupInput = function (conn) {
-//   const stdin = process.stdin;
-//   stdin.setRawMode(true);
-//   stdin.setEncoding("utf8");
-//   stdin.resume();
-//   stdin.on("data", handleUserInput);
-//   return stdin;
-// };
