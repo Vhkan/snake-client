@@ -23,8 +23,6 @@
   * 'Ctrl + c' - exit the game
 
   ## Final Product
-  ![The game looks like this]("link" "Playing the game")
+  ![The game looks like this](https://github.com/Vhkan/snake-client/blob/main/Snake-Game.png "Playing the game")
 
-
-
-### 🐍 Have fun 🐍
+  ### 🐍 Have fun 🐍
