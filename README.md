@@ -13,7 +13,7 @@
   * CD over to snek-multiplayer folder and run "npm install" command in the terminal
   * Use 2 separate terminal windows (server/client) => (snek-multiplayer/snake-client)
   * CD over to snake-client folder in the terminal and run "npm run play" command to start the game 
-  * CD over to snek-multiplayer folder in the terminal and run "npm run play" command to start playing the game
+  * CD over to snek-multiplayer folder in the terminal and run "node play.js" command to start playing the game
 
   ## Game Controlls:
   * 'w' - move up
