@@ -16,10 +16,12 @@
   * CD over to snek-multiplayer folder in the terminal and run "node play.js" command to start playing the game
 
   ## Game Controlls:
-  * 'w' - move up
-  * 's' - move down
-  * 'a' - move left
-  * 'd' - move right 
+  * 'w' - move: up
+  * 's' - move: down
+  * 'a' - move: left
+  * 'd' - move: right 
+  * 'q' - say: "Go-go-go!"
+  * 'e' - say: "Snake bite!"
   * 'Ctrl + c' - exit the game
 
   ## Final Product
